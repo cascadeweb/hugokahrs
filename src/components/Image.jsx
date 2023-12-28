@@ -9,11 +9,14 @@ const Image = () => {
     <section className="flex-1 flex flex-col items-center bg-gray-100 p-4">
       <div className="flex flex-wrap justify-center">
         {images.map((image, index) => (
-          <div key={index} className="w-64 h-64 mx-2 mb-4 overflow-hidden">
+          <div
+            key={index}
+            className="w-64 h-64 mx-2 mb-4 overflow-hidden bg-gray-100"
+          >
             <img
               src={image.url}
               alt={image.alt}
-              className="w-full h-full object-none"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
