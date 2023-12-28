@@ -16,7 +16,7 @@ const Image = () => {
             <img
               src={image.url}
               alt={image.alt}
-              className="w-full h-56 md:h-72 lg:h-80 xl:h-96 object-cover rounded-lg shadow-lg"
+              className="w-full h-56 md:h-72 lg:h-80 xl:h-96 object-cover object-contain rounded-lg shadow-lg"
             />
           </div>
         ))}
