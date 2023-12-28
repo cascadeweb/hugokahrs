@@ -1,7 +1,9 @@
+import React from "react";
+
 const images = [
-  { url: "/Art1.png", alt: "Image 1" },
-  { url: "/Art2.png", alt: "Image 2" },
-  { url: "/Art3.png", alt: "Image 3" },
+  { url: "/Art1.jpg", alt: "Image 1" },
+  { url: "/Art2.jpeg", alt: "Image 2" },
+  { url: "/Art3.jpeg", alt: "Image 3" },
 ];
 
 const Image = () => {
@@ -11,12 +13,12 @@ const Image = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-64 h-64 mx-2 mb-4 overflow-hidden bg-gray-100"
+            className="w-64 h-64 md:w-96 md:h-96 lg:w-96 lg:h-96 xl:w-96 xl:h-96 mx-2 mb-4 overflow-hidden bg-gray-100"
           >
             <img
               src={image.url}
               alt={image.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
         ))}
