@@ -1,6 +1,3 @@
-// src/components/Header.jsx
-import React from 'react';
-
 const Header = ({ toggleGridMode }) => {
   return (
     <header className="bg-white p-4 flex items-center justify-between">

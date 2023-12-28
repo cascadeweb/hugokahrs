@@ -1,10 +1,7 @@
-import React from 'react';
-
 const images = [
   { url: "/Art1.png", alt: "Image 1" },
   { url: "/Art2.png", alt: "Image 2" },
   { url: "/Art1.png", alt: "Image 3" },
-  // Add more image URLs and alt text as needed
 ];
 
 const Image = () => {
