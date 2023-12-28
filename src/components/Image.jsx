@@ -1,3 +1,5 @@
+import React from 'react';
+
 const images = [
   { url: "/Art1.png", alt: "Image 1" },
   { url: "/Art2.png", alt: "Image 2" },
@@ -7,14 +9,14 @@ const images = [
 
 const Image = () => {
   return (
-    <section className="flex-1 flex flex-col items-center bg-gray-100 p-4" style={{ height: '400px' }}>
+    <section className="flex-1 flex flex-col items-center bg-gray-100 p-4">
       <div className="flex flex-wrap justify-center">
         {images.map((image, index) => (
           <div key={index} className="max-w-md mb-4 mx-2">
             <img
               src={image.url}
               alt={image.alt}
-              className="w-full h-56 md:h-72 lg:h-80 xl:h-96 object-cover rounded-lg"
+              className="w-full h-64 md:h-72 lg:h-80 xl:h-96 object-cover rounded-lg shadow-lg"
             />
           </div>
         ))}
