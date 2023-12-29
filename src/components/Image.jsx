@@ -1,5 +1,3 @@
-import React from "react";
-
 const images = [
   { url: "/Art1.jpg", alt: "Image 1" },
   { url: "/Art2.jpeg", alt: "Image 2" },
