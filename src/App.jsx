@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Image from './components/Image';
+import './App.css';
 
 function App() {
   const [isGridMode, setIsGridMode] = useState(false);
