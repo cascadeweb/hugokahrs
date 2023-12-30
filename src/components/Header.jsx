@@ -18,7 +18,6 @@ const Header = () => {
           </div>
           <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link to="/">Hjem</Link></li>
-            <li><a href="/" onClick={goToInstagramPage}>Instagram</a></li>
           </ul>
         </div>
       </div>
