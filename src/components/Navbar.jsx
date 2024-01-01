@@ -41,9 +41,9 @@ const Header = () => {
             ></path>
           </svg>
         </button>
-        <div className="hidden lg:flex items-center space-x-4 justify-center flex-1">
+        <div className="flex items-center justify-center flex-1">
           {/* Your navigation links here */}
-          <Link to="/" className="text-white text-2xl">
+          <Link to="/" className="text-white text-2xl text-center">
             Hugo Kahrs
           </Link>
         </div>
