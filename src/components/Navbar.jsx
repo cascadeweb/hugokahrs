@@ -3,14 +3,14 @@ import { FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const openDrawer = () => {
+    setIsDrawerOpen(true);
   };
 
-  const closeMenu = () => {
-    setMenuOpen(false);
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
   };
 
   const goToInstagramPage = (event) => {
@@ -19,14 +19,12 @@ const Header = () => {
     window.open(instagramUrl, '_blank');
   };
 
-  const menuCategories = ['Se Kunst'];
-
   return (
-    <div className="navbar bg-gray-800 p-4 sticky top-0 z-50">
+    <div className="relative bg-gray-800 p-4 sticky top-0 z-50">
       <div className="flex items-center justify-between w-full">
         <button
-          className="text-white lg:hidden focus:outline-none"
-          onClick={toggleMenu}
+          className="lg:hidden text-white focus:outline-none"
+          onClick={openDrawer}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,24 +41,11 @@ const Header = () => {
             ></path>
           </svg>
         </button>
-        <div className="flex items-center">
-          <Link to="/" className="text-white text-2xl ml-2">
+        <div className="hidden lg:flex items-center space-x-4 justify-center flex-1">
+          {/* Your navigation links here */}
+          <Link to="/" className="text-white text-2xl">
             Hugo Kahrs
           </Link>
-          {!menuOpen && (
-            <div className="hidden lg:flex items-center space-x-4 justify-center flex-1">
-              {menuCategories.map((category, index) => (
-                <Link
-                  key={index}
-                  to={category === 'Hjem' ? '/' : `/${category.toLowerCase()}`}
-                  className="text-white"
-                  style={{ marginLeft: '15px' }}
-                >
-                  {category}
-                </Link>
-              ))}
-            </div>
-          )}
         </div>
         <div className="ml-auto">
           <button
@@ -71,18 +56,20 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      {isDrawerOpen && (
+        <div className="lg:hidden fixed inset-0 bg-black opacity-50" onClick={closeDrawer}></div>
+      )}
+
       <div
-        className={`fixed top-0 left-0 h-full w-4/5 bg-gray-800 transform transition-transform ease-in-out duration-300 ${
-          menuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`lg:hidden fixed inset-y-0 left-0 max-w-xs w-full bg-gray-800 transform transition-transform ease-in-out duration-300 ${
+          isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="p-4 flex flex-col h-full">
+        <div className="p-4">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white text-2xl font-bold">Hugo Kahrs</h2>
-            <button
-              className="text-white focus:outline-none"
-              onClick={closeMenu}
-            >
+            <button className="text-white" onClick={closeDrawer}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -100,22 +87,14 @@ const Header = () => {
             </button>
           </div>
           <hr className="border-t border-gray-700 mb-4" />
-          <ul className="pl-0 flex-1 overflow-y-auto">
-            {menuCategories.map((category, index) => (
-              <React.Fragment key={index}>
-                <li className="text-white text-left mb-2">
-                  <Link
-                    to={category === 'Hjem' ? '/' : `/${category.toLowerCase()}`}
-                    onClick={closeMenu}
-                  >
-                    <div className="hover:bg-gray-700 p-2 rounded">{category}</div>
-                  </Link>
-                </li>
-                {index < menuCategories.length - 1 && (
-                  <hr className="border-t border-gray-700 mb-2" />
-                )}
-              </React.Fragment>
-            ))}
+          <ul className="pl-0">
+            {/* Your drawer menu items here */}
+            <li className="text-white text-left mb-2">
+              <Link to="/" onClick={closeDrawer}>
+                <div className="hover:bg-gray-700 p-2 rounded">Home</div>
+              </Link>
+            </li>
+            {/* Add more menu items as needed */}
           </ul>
         </div>
       </div>
